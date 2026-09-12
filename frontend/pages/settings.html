@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+```
+<meta name="description"
+      content="TaskFlow settings — manage your profile, security, notifications and preferences.">
+
+<title>Settings — TaskFlow</title>
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+      rel="stylesheet">
+
+<!-- Styles -->
+<link rel="stylesheet" href="/static/css/dashboard.css">
+<link rel="stylesheet" href="/static/css/settings.css">
+```
+
+</head>
+
+<body>
+
+<div class="app">
+
+```
+<!-- =====================================================
+     SIDEBAR
+====================================================== -->
+
+<aside class="sidebar">
+
+    <a href="/index" class="logo">
+        <span class="logo-icon">✓</span>
+        TaskFlow
+    </a>
+
+
+    <!-- Workspace -->
+
+    <div class="nav-section">
+
+        <div class="nav-label">
+            Workspace
+        </div>
+
+        <a href="/dashboard" class="nav-item">
+            <span class="nav-icon">◉</span>
+            Dashboard
+        </a>
+
+        <a href="/tasks" class="nav-item">
+            <span class="nav-icon">✓</span>
+            My Tasks
+        </a>
+
+        <a href="/projects" class="nav-item">
+            <span class="nav-icon">▣</span>
+            Projects
+        </a>
+
+        <a href="/calendar" class="nav-item">
+            <span class="nav-icon">◷</span>
+            Calendar
+        </a>
+
+    </div>
+
+
+    <!-- Personal -->
+
+    <div class="nav-section">
+
+        <div class="nav-label">
+            Personal
+        </div>
+
+        <a href="/important" class="nav-item">
+            <span class="nav-icon">★</span>
+            Important
+        </a>
+
+        <a href="/settings" class="nav-item active">
+            <span class="nav-icon">⚙</span>
+            Settings
+        </a>
+
+    </div>
+
+
+    <!-- Sidebar User -->
+
+    <div class="sidebar-bottom">
+
+        <div class="user-profile">
+
+            <div class="avatar" id="sidebar-avatar">
+                RW
+            </div>
+
+            <div class="user-info">
+
+                <div class="user-name" id="sidebar-name">
+                    Rahul
+                </div>
+
+                <div class="user-email" id="sidebar-email">
+                    rahul@example.com
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</aside>
+
+
+<!-- =====================================================
+     MAIN CONTENT
+====================================================== -->
+
+<main class="main">
+
+
+    <!-- TOPBAR -->
+
+    <div class="topbar">
+
+        <div class="welcome">
+
+            <h1>
+                Settings
+            </h1>
+
+            <p>
+                Manage your account and preferences.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- =================================================
+         SETTINGS CONTENT
+    ================================================== -->
+
+    <div class="settings-content">
+
+
+        <!-- =================================================
+             PROFILE
+        ================================================== -->
+
+        <section class="settings-section" id="profile">
+
+            <div class="settings-heading">
+
+                <h2>
+                    Profile
+                </h2>
+
+                <p>
+                    Manage your personal information and account details.
+                </p>
+
+            </div>
+
+
+            <!-- Profile photo -->
+
+            <div class="profile-header">
+
+                <div class="profile-avatar" id="main-avatar">
+                    RW
+                </div>
+
+                <div class="profile-photo-info">
+
+                    <h3>
+                        Profile photo
+                    </h3>
+
+                    <p>
+                        This photo will be displayed on your TaskFlow profile.
+                    </p>
+
+                    <button
+                        type="button"
+                        class="secondary-btn"
+                        id="change-photo-btn">
+
+                        Change photo
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div class="settings-divider"></div>
+
+
+            <!-- Profile form -->
+
+            <form
+                class="settings-form"
+                id="profile-form">
+
+                <div class="form-group">
+
+                    <label for="full-name">
+                        Full name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="full-name"
+                        name="name"
+                        placeholder="Enter your full name"
+                        required>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="email">
+                        Email
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="Enter your email"
+                        required>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="username">
+                        Username
+                    </label>
+
+                    <input
+                        type="text"
+                        id="username"
+                        name="username"
+                        placeholder="Enter your username"
+                        required>
+
+                </div>
+
+
+                <div class="form-actions">
+
+                    <button
+                        type="submit"
+                        class="primary-btn"
+                        id="profile-submit-btn">
+
+                        Save changes
+
+                    </button>
+
+                </div>
+
+            </form>
+
+        </section>
+
+
+        <!-- =================================================
+             SECURITY
+        ================================================== -->
+
+        <section class="settings-section" id="security">
+
+            <div class="settings-heading">
+
+                <h2>
+                    Security
+                </h2>
+
+                <p>
+                    Manage your password and account security.
+                </p>
+
+            </div>
+
+
+            <div class="settings-card-heading">
+
+                <h3>
+                    Password
+                </h3>
+
+                <p>
+                    Change your password to keep your account secure.
+                </p>
+
+            </div>
+
+
+            <!-- Password form -->
+
+            <form
+                class="settings-form"
+                id="security-form">
+
+                <div class="form-group">
+
+                    <label for="current-password">
+                        Current password
+                    </label>
+
+                    <input
+                        type="password"
+                        id="current-password"
+                        name="current_password"
+                        placeholder="Enter current password"
+                        autocomplete="current-password"
+                        required>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="new-password">
+                        New password
+                    </label>
+
+                    <input
+                        type="password"
+                        id="new-password"
+                        name="new_password"
+                        placeholder="Enter new password"
+                        autocomplete="new-password"
+                        required>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="confirm-password">
+                        Confirm new password
+                    </label>
+
+                    <input
+                        type="password"
+                        id="confirm-password"
+                        name="confirm_password"
+                        placeholder="Confirm new password"
+                        autocomplete="new-password"
+                        required>
+
+                </div>
+
+
+                <div class="form-actions">
+
+                    <button
+                        type="submit"
+                        class="primary-btn"
+                        id="security-submit-btn">
+
+                        Update password
+
+                    </button>
+
+                </div>
+
+            </form>
+
+
+            <div class="settings-divider"></div>
+
+
+            <!-- Two-factor authentication -->
+
+            <div class="future-setting">
+
+                <div>
+
+                    <h3>
+                        Two-factor authentication
+                    </h3>
+
+                    <p>
+                        Add an additional layer of security to your account.
+                    </p>
+
+                </div>
+
+                <span class="coming-soon">
+                    Coming soon
+                </span>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             ACCOUNT
+        ================================================== -->
+
+        <section class="settings-section" id="account">
+
+            <div class="settings-heading">
+
+                <h2>
+                    Account
+                </h2>
+
+                <p>
+                    Manage your TaskFlow account.
+                </p>
+
+            </div>
+
+
+            <div class="settings-card-heading">
+
+                <h3>
+                    Account actions
+                </h3>
+
+                <p>
+                    Additional account management options.
+                </p>
+
+            </div>
+
+
+            <div class="settings-actions">
+
+                <button
+                    type="button"
+                    class="secondary-btn"
+                    id="logout-btn">
+
+                    Log out
+
+                </button>
+
+            </div>
+
+        </section>
+
+
+    </div>
+
+</main>
+```
+
+</div>
+
+<!-- =========================================================
+     JAVASCRIPT
+========================================================== -->
+
+<!-- Central API + authentication helper -->
+
+<script src="/static/js/api.js"></script>
+
+<!-- Settings page functionality -->
+
+<script src="/static/js/settings.js"></script>
+
+<!-- Logout handling -->
+<script>
+document.getElementById('logout-btn').addEventListener('click', async function () {
+    const btn = this;
+    btn.disabled = true;
+    btn.textContent = 'Logging out...';
+
+    try {
+        // Tell the backend to invalidate the session/token
+        await fetch('/api/logout', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            credentials: 'include' // sends the session cookie so the server knows which session to kill
+        });
+    } catch (err) {
+        console.error('Logout request failed:', err);
+        // Even if the request fails, still clear client-side state and redirect
+    } finally {
+        // Clear any client-side auth state
+        localStorage.removeItem('authToken');
+        sessionStorage.clear();
+
+        // Redirect to login page
+        window.location.href = '/login';
+    }
+});
+</script>
+
+</body>
+</html>

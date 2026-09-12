@@ -1,0 +1,126 @@
+/* =====================================================
+   projects.css — PAGE-SPECIFIC STYLES for projects.html
+   Load AFTER style.css. Assumes style.css has already
+   defined :root tokens, .sidebar, .topbar, .new-task-btn.
+
+   Projects is currently a "coming soon" page — the real
+   project-card/grid/toolbar styling has been removed and
+   can be restored once the projects backend exists.
+====================================================== */
+
+/* =====================================================
+   PAGE TITLE — "Coming soon" tag
+====================================================== */
+
+.page-title h1 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.coming-soon-tag {
+  flex-shrink: 0;
+
+  padding: 5px 9px;
+
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  border-radius: 6px;
+
+  background: rgba(139, 92, 246, 0.07);
+
+  color: var(--accent-light);
+
+  font-family: "DM Sans", sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+
+  vertical-align: middle;
+}
+
+/* =====================================================
+   DISABLED "+ New project" BUTTON
+====================================================== */
+
+.new-task-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.new-task-btn:disabled:hover {
+  transform: none;
+}
+
+/* =====================================================
+   COMING SOON PANEL
+====================================================== */
+
+.coming-soon-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+  margin-top: 40px;
+  padding: 70px 24px;
+
+  border: 1px dashed var(--border);
+  border-radius: var(--radius);
+
+  background: rgba(255, 255, 255, 0.015);
+}
+
+.coming-soon-icon {
+  width: 56px;
+  height: 56px;
+
+  display: grid;
+  place-items: center;
+
+  margin-bottom: 20px;
+
+  border-radius: 14px;
+
+  background: rgba(139, 92, 246, 0.12);
+  color: #c4b5fd;
+
+  font-size: 24px;
+}
+
+.coming-soon-panel h2 {
+  margin: 0 0 10px;
+
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+
+  color: #e7e8ed;
+}
+
+.coming-soon-panel p {
+  max-width: 420px;
+
+  margin: 0;
+
+  color: var(--muted);
+
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+/* =====================================================
+   RESPONSIVE
+====================================================== */
+
+@media (max-width: 700px) {
+
+  .coming-soon-panel {
+    margin-top: 24px;
+    padding: 50px 18px;
+  }
+
+  .page-title h1 {
+    flex-wrap: wrap;
+    row-gap: 8px;
+  }
+
+}

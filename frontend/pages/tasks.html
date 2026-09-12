@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="TaskFlow task management dashboard — organize, prioritize and complete your tasks.">
+  <title>Tasks — TaskFlow</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="/static/css/tasks.css">
+</head>
+<body>
+
+<div class="app">
+
+  <!-- ===================================================
+       SIDEBAR
+  ==================================================== -->
+  <aside class="sidebar">
+
+    <a href="/dashboard" class="logo">
+      <span class="logo-icon">✓</span>
+      TaskFlow
+    </a>
+
+    <div class="nav-section">
+      <div class="nav-label">Workspace</div>
+
+      <a href="/dashboard" class="nav-item">
+        <span class="nav-icon">◉</span>
+        Dashboard
+      </a>
+
+      <a href="/tasks" class="nav-item active">
+        <span class="nav-icon">✓</span>
+        My Tasks
+      </a>
+
+      <a href="/projects" class="nav-item">
+        <span class="nav-icon">▣</span>
+        Projects
+      </a>
+
+      <a href="/calendar" class="nav-item">
+        <span class="nav-icon">◷</span>
+        Calendar
+      </a>
+    </div>
+
+    <div class="nav-section">
+      <div class="nav-label">Personal</div>
+
+      <a href="/important" class="nav-item">
+        <span class="nav-icon">★</span>
+        Important
+      </a>
+
+      <a href="/settings" class="nav-item">
+        <span class="nav-icon">⚙</span>
+        Settings
+      </a>
+    </div>
+
+    <div class="sidebar-bottom">
+      <div class="user-profile">
+        <div class="avatar" id="userAvatar">U</div>
+        <div class="user-info">
+          <div class="user-name" id="userName">Loading...</div>
+          <div class="user-email" id="userEmail">...</div>
+        </div>
+      </div>
+    </div>
+
+  </aside>
+
+  <!-- ===================================================
+       MAIN CONTENT
+  ==================================================== -->
+  <main class="main">
+
+    <!-- TOP BAR — same "welcome" structure/classes as dashboard.html -->
+    <div class="topbar">
+
+      <div class="welcome">
+        <h1>My Tasks</h1>
+        <p>Organize your work and keep moving forward.</p>
+      </div>
+
+      <div class="top-actions">
+        <button type="button" class="icon-btn" title="Notifications">♢</button>
+        <button type="button" class="new-task-btn" id="openTaskModalBtn">+ New task</button>
+      </div>
+
+    </div>
+
+    <!-- STATS — same stat-top / stat-icon markup as dashboard.html -->
+    <section class="stats">
+
+      <div class="stat-card">
+        <div class="stat-top">
+          <span class="stat-label">Total Tasks</span>
+          <span class="stat-icon">✓</span>
+        </div>
+        <div class="stat-value" id="statTotal">0</div>
+        <div class="stat-change">Active workload</div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-top">
+          <span class="stat-label">Completed</span>
+          <span class="stat-icon">✓</span>
+        </div>
+        <div class="stat-value" id="statCompleted">0</div>
+        <div class="stat-change">Tasks finished</div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-top">
+          <span class="stat-label">In Progress</span>
+          <span class="stat-icon">◷</span>
+        </div>
+        <div class="stat-value" id="statInProgress">0</div>
+        <div class="stat-change">Currently active</div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-top">
+          <span class="stat-label">Completion Rate</span>
+          <span class="stat-icon">%</span>
+        </div>
+        <div class="stat-value" id="statCompletionRate">0%</div>
+        <div class="stat-change">Overall progress</div>
+      </div>
+
+    </section>
+
+    <!-- TOOLBAR -->
+    <div class="toolbar">
+
+      <div class="filters">
+        <button type="button" class="filter-btn active" data-filter="all">All</button>
+        <button type="button" class="filter-btn" data-filter="today">Today</button>
+        <button type="button" class="filter-btn" data-filter="upcoming">Upcoming</button>
+        <button type="button" class="filter-btn" data-filter="completed">Completed</button>
+      </div>
+
+      <div class="search">
+        <span class="search-icon">⌕</span>
+        <input type="search" id="taskSearchInput" placeholder="Search tasks...">
+      </div>
+
+    </div>
+
+    <!-- TASK BOARD -->
+    <section class="board">
+
+      <!-- TODO -->
+      <div class="column">
+        <div class="column-header">
+          <div class="column-title">
+            <span class="column-dot dot-todo"></span>
+            To do
+          </div>
+          <span class="column-count" id="todoCount">0</span>
+        </div>
+
+        <div class="task-list-container" id="todoColumn">
+          <!-- Dynamically populated -->
+        </div>
+
+        <button type="button" class="add-card open-task-modal">+ Add task</button>
+      </div>
+
+      <!-- COMPLETED -->
+      <div class="column">
+        <div class="column-header">
+          <div class="column-title">
+            <span class="column-dot dot-done"></span>
+            Completed
+          </div>
+          <span class="column-count" id="completedCount">0</span>
+        </div>
+
+        <div class="task-list-container" id="completedColumn">
+          <!-- Dynamically populated -->
+        </div>
+
+        <button type="button" class="add-card open-task-modal">+ Add task</button>
+      </div>
+
+    </section>
+
+  </main>
+
+</div>
+
+<!-- ===================================================
+     NEW / EDIT TASK MODAL
+==================================================== -->
+<div class="modal" id="taskModal" aria-hidden="true">
+
+  <div class="modal-backdrop" id="modalBackdrop"></div>
+
+  <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+
+    <div class="modal-header">
+      <h2 id="modalTitle">Create new task</h2>
+      <button type="button" class="close-btn" id="closeTaskModalBtn" aria-label="Close">×</button>
+    </div>
+
+    <form id="taskForm">
+
+      <div class="form-group">
+        <label for="taskTitle">Task title</label>
+        <input type="text" id="taskTitle" name="title" placeholder="What needs to be done?" required>
+      </div>
+
+      <div class="form-group">
+        <label for="taskDescription">Description</label>
+        <textarea id="taskDescription" name="description" placeholder="Add some details..."></textarea>
+      </div>
+
+      <div class="form-row">
+
+        <div class="form-group">
+          <label for="priority">Priority</label>
+          <select id="priority" name="priority">
+            <option value="low">Low</option>
+            <option value="medium" selected>Medium</option>
+            <option value="high">High</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="dueDate">Due date</label>
+          <input type="date" id="dueDate" name="due_date">
+        </div>
+
+      </div>
+
+      <div class="modal-actions">
+        <button type="button" class="cancel-btn" id="cancelTaskModalBtn">Cancel</button>
+        <button type="submit" class="save-btn" id="saveTaskBtn">Create task</button>
+      </div>
+
+    </form>
+
+  </div>
+
+</div>
+
+<!-- Static script includes — order matters: api.js and auth.js must
+     define apiRequest before tasks.js runs. -->
+<script src="/static/js/api.js"></script>
+<script src="/static/js/auth.js"></script>
+<script src="/static/js/main.js"></script>
+<script src="/static/js/tasks.js"></script>
+
+</body>
+</html>

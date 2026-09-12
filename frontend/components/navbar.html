@@ -1,0 +1,24 @@
+{# =====================================================
+   components/navbar.html
+   Top navbar — logo, quick links, and logout button.
+   Use this on pages that don't have the left sidebar
+   (e.g. profile.html), or above the sidebar layout if
+   you want both. Expects:
+     - active_page: "dashboard" | "tasks" | "profile"
+====================================================== #}
+
+<header class="navbar">
+
+  <a href="/" class="navbar-brand">
+    <span class="logo-icon">✓</span>
+    TaskFlow
+  </a>
+
+  <nav class="navbar-links">
+    <a href="/dashboard" class="{{ 'active' if active_page == 'dashboard' else '' }}">Dashboard</a>
+    <a href="/tasks" class="{{ 'active' if active_page == 'tasks' else '' }}">Tasks</a>
+    <a href="/profile" class="{{ 'active' if active_page == 'profile' else '' }}">Profile</a>
+    <button id="logoutBtn" class="btn btn-secondary">Logout</button>
+  </nav>
+
+</header>

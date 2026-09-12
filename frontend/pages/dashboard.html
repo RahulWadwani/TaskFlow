@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="TaskFlow dashboard — track productivity, tasks and progress.">
+  <title>Dashboard — TaskFlow</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Dashboard CSS -->
+  <link rel="stylesheet" href="/static/css/dashboard.css">
+</head>
+
+<body>
+
+<div class="app">
+
+  <!-- =====================================================
+       SIDEBAR
+  ====================================================== -->
+  <aside class="sidebar">
+
+    <a href="/" class="logo">
+      <span class="logo-icon">✓</span>
+      TaskFlow
+    </a>
+
+    <div class="nav-section">
+      <div class="nav-label">Workspace</div>
+      <a href="/dashboard" class="nav-item active">
+        <span class="nav-icon">◉</span> Dashboard
+      </a>
+      <a href="/tasks" class="nav-item">
+        <span class="nav-icon">✓</span> My Tasks
+      </a>
+      <a href="/projects" class="nav-item">
+        <span class="nav-icon">▣</span> Projects
+      </a>
+      <a href="/calendar" class="nav-item">
+        <span class="nav-icon">◷</span> Calendar
+      </a>
+    </div>
+
+    <div class="nav-section">
+      <div class="nav-label">Personal</div>
+      <a href="/important" class="nav-item">
+        <span class="nav-icon">★</span> Important
+      </a>
+      <a href="/settings" class="nav-item">
+        <span class="nav-icon">⚙</span> Settings
+      </a>
+    </div>
+
+    <!-- DYNAMIC USER PROFILE SECTION -->
+    <div class="sidebar-bottom">
+      <div class="user-profile">
+        <div class="avatar" id="sidebarAvatar">--</div>
+        <div class="user-info">
+          <div class="user-name" id="sidebarUserName">Loading...</div>
+          <div class="user-email" id="sidebarUserEmail">Loading...</div>
+        </div>
+      </div>
+    </div>
+
+  </aside>
+
+  <!-- =====================================================
+       MAIN CONTENT
+  ====================================================== -->
+  <main class="main">
+
+    <!-- TOP BAR -->
+    <div class="topbar">
+      <div class="welcome">
+        <h1 id="welcomeTitle">Loading greeting...</h1>
+        <p>Here's what's happening with your tasks today.</p>
+      </div>
+
+      <div class="top-actions">
+        <button class="icon-btn" title="Notifications">♢</button>
+        <a href="/tasks" class="new-task-btn">View tasks</a>
+      </div>
+    </div>
+
+    <!-- STATISTICS -->
+    <section class="stats">
+      <div class="stat-card">
+        <div class="stat-top">
+          <span class="stat-label">Total Tasks</span>
+          <span class="stat-icon">✓</span>
+        </div>
+        <div class="stat-value" id="totalTasks">0</div>
+        <div class="stat-change">All your tasks</div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-top">
+          <span class="stat-label">Completed</span>
+          <span class="stat-icon">✓</span>
+        </div>
+        <div class="stat-value" id="completedTasks">0</div>
+        <div class="stat-change">Completed tasks</div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-top">
+          <span class="stat-label">In Progress</span>
+          <span class="stat-icon">◷</span>
+        </div>
+        <div class="stat-value" id="inProgressTasks">0</div>
+        <div class="stat-change">Currently active</div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-top">
+          <span class="stat-label">Completion Rate</span>
+          <span class="stat-icon">%</span>
+        </div>
+        <div class="stat-value" id="completionRate">0%</div>
+        <div class="stat-change">Based on your tasks</div>
+      </div>
+    </section>
+
+    <!-- DASHBOARD GRID -->
+    <section class="dashboard-grid">
+
+      <!-- RECENT TASKS -->
+      <div class="panel">
+        <div class="panel-header">
+          <h2 class="panel-title">Recent Tasks</h2>
+          <a href="/tasks" class="panel-link">View all →</a>
+        </div>
+        <div class="task-list" id="recentTasks">
+          <div class="task-item">
+            <div class="task-content">
+              <div class="task-name">Loading tasks...</div>
+              <div class="task-meta">Please wait</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PRODUCTIVITY -->
+      <div class="panel">
+        <div class="panel-header">
+          <h2 class="panel-title">Productivity</h2>
+          <span class="panel-link">Current</span>
+        </div>
+
+        <div class="productivity">
+          <div class="progress-wrapper">
+            <div class="progress-circle">
+              <span class="progress-number" id="productivityPercentage">0%</span>
+            </div>
+            <div class="progress-info">
+              <h3 id="productivityMessage">Let's get started!</h3>
+              <p>Your task completion progress.</p>
+            </div>
+          </div>
+
+          <div>
+            <div class="progress-label">
+              <span>Completed tasks</span>
+              <span id="productivityText">0 / 0 tasks</span>
+            </div>
+            <div class="progress-bar">
+              <div class="progress-fill" id="progressFill"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ACTIVITY + QUICK ACTIONS -->
+    <section class="dashboard-grid activity">
+
+      <!-- RECENT ACTIVITY -->
+      <div class="panel">
+        <div class="panel-header">
+          <h2 class="panel-title">Recent Activity</h2>
+        </div>
+        <div class="activity-list" id="activityList">
+          <div class="activity-item">
+            <span class="activity-dot"></span>
+            <div class="activity-text">
+              <strong>TaskFlow</strong> Loading your activity...
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- QUICK ACTIONS -->
+      <div class="panel">
+        <div class="panel-header">
+          <h2 class="panel-title">Quick Actions</h2>
+        </div>
+        <div class="quick-actions">
+          <a href="/tasks" class="quick-action">
+            <div class="quick-icon">✓</div>
+            <h3>View Tasks</h3>
+            <p>Manage your tasks</p>
+          </a>
+          <a href="/tasks" class="quick-action">
+            <div class="quick-icon">+</div>
+            <h3>New Task</h3>
+            <p>Create a task</p>
+          </a>
+          <a href="/calendar" class="quick-action">
+            <div class="quick-icon">◷</div>
+            <h3>Calendar</h3>
+            <p>View your schedule</p>
+          </a>
+          <a href="/settings" class="quick-action">
+            <div class="quick-icon">⚙</div>
+            <h3>Settings</h3>
+            <p>Manage preferences</p>
+          </a>
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+
+</div>
+
+<!-- Scripts must be loaded in this exact order -->
+<script src="/static/js/api.js"></script>
+<script src="/static/js/auth.js"></script>
+<script src="/static/js/main.js"></script>
+<script src="/static/js/dashboard.js"></script>
+
+</body>
+</html>

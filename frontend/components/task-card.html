@@ -1,0 +1,36 @@
+{# =====================================================
+   components/task_card.html
+   Expects a single variable `task` in context, shaped like:
+     {
+       "id": 1,
+       "title": "Design landing page",
+       "description": "Create the first version...",   # optional
+       "due_date": "Today",
+       "priority": "high" | "medium" | "low",
+       "done": false                                     # optional
+     }
+
+   Usage from a parent template:
+     {% for task in tasks %}
+       {% include "components/task_card.html" %}
+     {% endfor %}
+====================================================== #}
+
+<a href="/tasks/{{ task.id }}" class="task-card">
+
+  <h3 class="task-title">
+    {% if task.done %}✓ {% endif %}{{ task.title }}
+  </h3>
+
+  {% if task.description %}
+    <p class="task-description">{{ task.description }}</p>
+  {% endif %}
+
+  <div class="task-footer">
+    <span class="task-date">{{ task.due_date or "No due date" }}</span>
+    <span class="priority {{ task.priority }}">
+      {{ "Done" if task.done else task.priority | capitalize }}
+    </span>
+  </div>
+
+</a>

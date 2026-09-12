@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="TaskFlow projects — organize tasks by project, track priority, status and deadlines.">
+  <title>Projects — TaskFlow</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/static/css/style.css">
+  <link rel="stylesheet" href="/static/css/projects.css">
+</head>
+<body>
+
+<div class="app">
+
+  <!-- =====================================================
+       SIDEBAR
+  ====================================================== -->
+
+  <aside class="sidebar">
+
+    <a href="/index" class="logo">
+      <span class="logo-icon">✓</span>
+      TaskFlow
+    </a>
+
+    <div class="nav-section">
+      <div class="nav-label">Workspace</div>
+
+      <!-- Dashboard -->
+      <a href="/dashboard" class="nav-item">
+        <span class="nav-icon">◉</span>
+        Dashboard
+      </a>
+
+      <!-- Tasks -->
+      <a href="/tasks" class="nav-item">
+        <span class="nav-icon">✓</span>
+        My Tasks
+      </a>
+
+      <a href="/projects" class="nav-item active">
+        <span class="nav-icon">▣</span>
+        Projects
+      </a>
+
+      <a href="/calendar" class="nav-item">
+        <span class="nav-icon">◷</span>
+        Calendar
+      </a>
+    </div>
+
+    <div class="nav-section">
+      <div class="nav-label">Personal</div>
+
+      <a href="/important" class="nav-item">
+        <span class="nav-icon">★</span>
+        Important
+      </a>
+
+      <a href="/settings" class="nav-item">
+        <span class="nav-icon">⚙</span>
+        Settings
+      </a>
+    </div>
+
+    <div class="sidebar-bottom">
+      <div class="user-profile">
+        <div class="avatar" id="sidebar-avatar">RW</div>
+        <div class="user-info">
+          <div class="user-name" id="sidebar-name">Rahul</div>
+          <div class="user-email" id="sidebar-email">rahul@example.com</div>
+        </div>
+      </div>
+    </div>
+
+  </aside>
+
+  <main class="main">
+
+    <!-- TOP BAR -->
+    <div class="topbar">
+      <div class="page-title">
+        <h1>
+          Projects
+          <span class="coming-soon-tag">Coming soon</span>
+        </h1>
+        <p>Organize your tasks by project and track progress at a glance.</p>
+      </div>
+
+      <div class="top-actions">
+        <button class="icon-btn" title="Notifications">♢</button>
+        <button class="new-task-btn" id="newProjectBtn" disabled title="Coming soon">+ New project</button>
+      </div>
+    </div>
+
+    <!-- COMING SOON STATE -->
+    <section class="coming-soon-panel">
+
+      <div class="coming-soon-icon">▣</div>
+
+      <h2>Projects are coming soon</h2>
+
+      <p>
+        We're building full project management into TaskFlow —
+        group your tasks, track progress, and manage deadlines
+        all in one place. Check back soon!
+      </p>
+
+    </section>
+
+  </main>
+
+</div>
+
+<script src="../js/api.js"></script>
+<script src="../js/main.js"></script>
+<script src="../js/projects.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,603 @@
+/* =====================================================
+TASKFLOW — SETTINGS PAGE
+Clean centered settings layout
+No cards / no inner sidebar
+===================================================== */
+
+/* =====================================================
+SETTINGS CONTENT
+===================================================== */
+
+.settings-content {
+width: min(820px, calc(100% - 80px));
+margin: 0 auto;
+padding: 42px 0 80px;
+}
+
+/* =====================================================
+SETTINGS SECTION
+===================================================== */
+
+.settings-section {
+padding: 0 0 55px;
+margin-bottom: 55px;
+border-bottom: 1px solid var(--border);
+}
+
+.settings-section:last-child {
+margin-bottom: 0;
+border-bottom: none;
+}
+
+/* =====================================================
+SECTION HEADING
+===================================================== */
+
+.settings-heading {
+margin-bottom: 32px;
+}
+
+.settings-heading h2 {
+margin: 0;
+
+font-family: "Space Grotesk", sans-serif;
+font-size: 22px;
+font-weight: 600;
+
+letter-spacing: -0.4px;
+
+}
+
+.settings-heading p {
+margin-top: 7px;
+
+color: var(--muted);
+
+font-size: 13px;
+line-height: 1.6;
+
+}
+
+/* =====================================================
+PROFILE HEADER
+===================================================== */
+
+.profile-header {
+display: flex;
+align-items: center;
+gap: 18px;
+
+padding-bottom: 28px;
+
+}
+
+.profile-avatar {
+width: 64px;
+height: 64px;
+
+flex-shrink: 0;
+
+display: grid;
+place-items: center;
+
+border-radius: 50%;
+
+background:
+    linear-gradient(
+        135deg,
+        var(--accent-light),
+        #6d28d9
+    );
+
+color: white;
+
+font-family: "Space Grotesk", sans-serif;
+font-size: 18px;
+font-weight: 600;
+
+box-shadow:
+    0 0 25px rgba(139, 92, 246, 0.18);
+
+}
+
+.profile-photo-info h3,
+.settings-card-heading h3,
+.future-setting h3,
+.notification-row h3,
+.preference-row h3 {
+margin: 0;
+
+font-family: "Space Grotesk", sans-serif;
+font-size: 14px;
+font-weight: 600;
+
+}
+
+.profile-photo-info p,
+.settings-card-heading p,
+.future-setting p,
+.notification-row p,
+.preference-row p {
+margin-top: 5px;
+
+color: var(--muted);
+
+font-size: 12px;
+line-height: 1.6;
+
+}
+
+/* =====================================================
+BUTTONS
+===================================================== */
+
+.secondary-btn {
+margin-top: 12px;
+
+padding: 8px 13px;
+
+border: 1px solid var(--border);
+border-radius: 8px;
+
+background: transparent;
+
+color: var(--text);
+
+font-size: 12px;
+font-weight: 600;
+
+cursor: pointer;
+
+transition:
+    background 0.2s ease,
+    border-color 0.2s ease;
+
+}
+
+.secondary-btn:hover {
+background: var(--surface-hover);
+border-color: rgba(139, 92, 246, 0.35);
+}
+
+.primary-btn {
+padding: 10px 17px;
+
+border: none;
+border-radius: 8px;
+
+background:
+    linear-gradient(
+        135deg,
+        #9b7cf6,
+        #7c3aed
+    );
+
+color: white;
+
+font-size: 12px;
+font-weight: 600;
+
+cursor: pointer;
+
+box-shadow:
+    0 8px 24px rgba(124, 58, 237, 0.18);
+
+transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+
+}
+
+.primary-btn:hover {
+transform: translateY(-1px);
+
+box-shadow:
+    0 10px 28px rgba(124, 58, 237, 0.28);
+
+}
+
+/* =====================================================
+DIVIDER
+===================================================== */
+
+.settings-divider {
+width: 100%;
+height: 1px;
+
+margin: 26px 0;
+
+background: var(--border);
+
+}
+
+/* =====================================================
+FORMS
+===================================================== */
+
+.settings-form {
+width: 100%;
+}
+
+.form-group {
+display: grid;
+grid-template-columns: 170px minmax(0, 1fr);
+
+align-items: center;
+
+gap: 24px;
+
+margin-bottom: 20px;
+
+}
+
+.form-group label {
+color: var(--text);
+
+font-size: 12px;
+font-weight: 600;
+
+}
+
+.form-group input {
+width: 100%;
+
+min-height: 40px;
+
+padding: 10px 12px;
+
+border: 1px solid var(--border);
+border-radius: 8px;
+
+outline: none;
+
+background: var(--surface);
+
+color: var(--text);
+
+font-size: 12px;
+
+transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+
+}
+
+.form-group input::placeholder {
+color: #555b68;
+}
+
+.form-group input:focus {
+border-color: rgba(139, 92, 246, 0.65);
+
+box-shadow:
+    0 0 0 3px rgba(139, 92, 246, 0.08);
+
+}
+
+/* =====================================================
+FORM ACTIONS
+===================================================== */
+
+.form-actions {
+display: flex;
+justify-content: flex-end;
+
+margin-top: 26px;
+
+}
+
+/* =====================================================
+SECURITY
+===================================================== */
+
+.settings-card-heading {
+margin-bottom: 25px;
+}
+
+/* =====================================================
+FUTURE SETTING
+===================================================== */
+
+.future-setting {
+display: flex;
+
+align-items: center;
+justify-content: space-between;
+
+gap: 25px;
+
+}
+
+.coming-soon {
+flex-shrink: 0;
+
+padding: 5px 9px;
+
+border: 1px solid rgba(139, 92, 246, 0.2);
+border-radius: 6px;
+
+background: rgba(139, 92, 246, 0.07);
+
+color: var(--accent-light);
+
+font-size: 10px;
+font-weight: 600;
+
+}
+
+/* =====================================================
+NOTIFICATIONS
+===================================================== */
+
+.notification-row {
+display: flex;
+
+align-items: center;
+justify-content: space-between;
+
+gap: 30px;
+
+min-height: 65px;
+
+}
+
+.notification-row > div {
+min-width: 0;
+}
+
+/* =====================================================
+TOGGLE
+===================================================== */
+
+.toggle {
+position: relative;
+
+width: 40px;
+height: 22px;
+
+flex-shrink: 0;
+
+cursor: pointer;
+
+}
+
+.toggle input {
+opacity: 0;
+width: 0;
+height: 0;
+}
+
+.toggle-slider {
+position: absolute;
+
+inset: 0;
+
+border-radius: 30px;
+
+background: #272b35;
+
+transition: 0.2s ease;
+
+}
+
+.toggle-slider::before {
+content: "";
+
+position: absolute;
+
+width: 16px;
+height: 16px;
+
+left: 3px;
+top: 3px;
+
+border-radius: 50%;
+
+background: #858b99;
+
+transition: 0.2s ease;
+
+}
+
+.toggle input:checked + .toggle-slider {
+background: var(--accent);
+}
+
+.toggle input:checked + .toggle-slider::before {
+transform: translateX(18px);
+
+background: white;
+
+}
+
+/* =====================================================
+PREFERENCES
+===================================================== */
+
+.preference-row {
+display: flex;
+
+align-items: center;
+justify-content: space-between;
+
+gap: 30px;
+
+min-height: 62px;
+
+}
+
+.preference-row > div {
+min-width: 0;
+}
+
+.settings-select {
+min-width: 190px;
+
+padding: 9px 12px;
+
+border: 1px solid var(--border);
+border-radius: 8px;
+
+outline: none;
+
+background: var(--surface);
+
+color: var(--text);
+
+font-size: 12px;
+
+cursor: pointer;
+
+}
+
+.settings-select:focus {
+border-color: rgba(139, 92, 246, 0.6);
+}
+
+/* =====================================================
+TOPBAR ADJUSTMENT
+Keeps settings content visually centered while
+preserving the existing TaskFlow topbar.
+===================================================== */
+
+.main .topbar {
+padding-left: 40px;
+padding-right: 40px;
+}
+
+/* =====================================================
+RESPONSIVE
+===================================================== */
+
+@media (max-width: 900px) {
+
+.settings-content {
+    width: min(760px, calc(100% - 56px));
+}
+
+}
+
+@media (max-width: 700px) {
+
+.settings-content {
+    width: calc(100% - 32px);
+
+    padding-top: 30px;
+    padding-bottom: 50px;
+}
+
+
+.main .topbar {
+    padding-left: 22px;
+    padding-right: 22px;
+}
+
+
+.settings-section {
+    padding-bottom: 40px;
+    margin-bottom: 40px;
+}
+
+
+.settings-heading {
+    margin-bottom: 25px;
+}
+
+
+.settings-heading h2 {
+    font-size: 20px;
+}
+
+
+.profile-header {
+    align-items: flex-start;
+}
+
+
+.form-group {
+    display: block;
+
+    margin-bottom: 18px;
+}
+
+
+.form-group label {
+    display: block;
+
+    margin-bottom: 8px;
+}
+
+
+.notification-row,
+.preference-row {
+    align-items: flex-start;
+}
+
+
+.settings-select {
+    min-width: 150px;
+}
+
+}
+
+@media (max-width: 480px) {
+
+.settings-content {
+    width: calc(100% - 28px);
+}
+
+
+.profile-header {
+    gap: 14px;
+}
+
+
+.profile-avatar {
+    width: 56px;
+    height: 56px;
+
+    font-size: 16px;
+}
+
+
+.future-setting,
+.notification-row,
+.preference-row {
+    gap: 18px;
+}
+
+
+.preference-row {
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+
+.settings-select {
+    width: 100%;
+}
+
+
+.form-actions {
+    justify-content: flex-start;
+}
+
+}
+
+/* =====================================================
+REDUCED MOTION
+===================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+*,
+*::before,
+*::after {
+
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+
+    transition-duration: 0.01ms !important;
+}
+
+}

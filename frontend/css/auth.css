@@ -1,0 +1,198 @@
+/* =====================================================
+   auth.css — PAGE-SPECIFIC STYLES for login.html / register.html
+   Load AFTER style.css. Assumes style.css has already
+   defined :root tokens, body background, .btn-primary,
+   .form-group, and .status-msg / .status-error.
+
+   Unlike tasks/dashboard, auth pages don't use the
+   .app / .sidebar / .main shell — they're a single
+   centered card.
+====================================================== */
+
+/* =====================================================
+   PAGE WRAPPER
+====================================================== */
+
+.auth-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 24px;
+}
+
+/* =====================================================
+   AUTH CARD
+====================================================== */
+
+.auth-card {
+  width: min(400px, 100%);
+  padding: 34px 30px;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.025);
+  box-shadow: 0 30px 100px rgba(0, 0, 0, 0.5);
+  animation: fadeIn 0.3s ease;
+}
+
+.auth-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 26px;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.auth-header {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.auth-header h1 {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 24px;
+  letter-spacing: -0.5px;
+  margin-bottom: 8px;
+}
+
+.auth-header p {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+/* =====================================================
+   FORM
+====================================================== */
+
+.auth-form .form-group {
+  margin-bottom: 16px;
+}
+
+.auth-form .form-options {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  font-size: 11px;
+  color: var(--muted);
+}
+
+.auth-form .form-options a {
+  color: var(--accent-light);
+}
+
+.auth-form .form-options a:hover {
+  text-decoration: underline;
+}
+
+.checkbox-group {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.checkbox-group input[type="checkbox"] {
+  width: 14px;
+  height: 14px;
+  accent-color: var(--accent);
+}
+
+.auth-submit-btn {
+  width: 100%;
+  padding: 11px;
+  border: none;
+  border-radius: 9px;
+  background: linear-gradient(135deg, #9b7cf6, #7c3aed);
+  color: white;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 8px 25px rgba(124, 58, 237, 0.2);
+  transition: 0.25s ease;
+}
+
+.auth-submit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(124, 58, 237, 0.35);
+}
+
+.auth-submit-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* =====================================================
+   DIVIDER
+====================================================== */
+
+.auth-divider {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 22px 0;
+  color: #555b68;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+}
+
+.auth-divider::before,
+.auth-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+/* =====================================================
+   FOOTER LINK (switch between login/register)
+====================================================== */
+
+.auth-footer {
+  text-align: center;
+  margin-top: 22px;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.auth-footer a {
+  color: var(--accent-light);
+  font-weight: 600;
+}
+
+.auth-footer a:hover {
+  text-decoration: underline;
+}
+
+/* =====================================================
+   ERROR / STATUS BANNER
+====================================================== */
+
+.auth-error {
+  display: none;
+  padding: 10px 13px;
+  margin-bottom: 18px;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  border-radius: 8px;
+  background: rgba(239, 68, 68, 0.08);
+  color: #fca5a5;
+  font-size: 11px;
+}
+
+.auth-error.active {
+  display: block;
+}
+
+/* =====================================================
+   RESPONSIVE
+====================================================== */
+
+@media (max-width: 480px) {
+  .auth-card {
+    padding: 26px 20px;
+  }
+}

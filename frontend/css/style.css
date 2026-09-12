@@ -1,0 +1,639 @@
+/* =====================================================
+   style.css — GLOBAL STYLES
+   Loaded on every page, before any page-specific CSS.
+   Contains: reset, design tokens, body, sidebar, topbar,
+   buttons, stat cards, task cards, and shared components.
+====================================================== */
+
+/* =====================================================
+   RESET
+====================================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* =====================================================
+   DESIGN TOKENS
+====================================================== */
+
+:root {
+  --bg: #08090d;
+  --sidebar: #0d0f14;
+  --surface: #11141b;
+  --surface-hover: #171a22;
+  --border: rgba(255, 255, 255, 0.08);
+  --text: #f5f7fa;
+  --muted: #858b99;
+  --accent: #8b5cf6;
+  --accent-light: #a78bfa;
+  --green: #22c55e;
+  --yellow: #eab308;
+  --red: #ef4444;
+  --radius: 14px;
+}
+
+body {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 70% 0%, rgba(139, 92, 246, 0.08), transparent 35%),
+    var(--bg);
+  color: var(--text);
+  font-family: "DM Sans", sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button, input, select, textarea {
+  font-family: inherit;
+}
+
+/* =====================================================
+   APP SHELL
+====================================================== */
+
+.app {
+  display: flex;
+  min-height: 100vh;
+}
+
+.main {
+  width: calc(100% - 245px);
+  margin-left: 245px;
+  padding: 32px 40px 50px;
+}
+
+/* =====================================================
+   SIDEBAR
+====================================================== */
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 245px;
+  height: 100vh;
+  padding: 24px 16px;
+  background: rgba(13, 15, 20, 0.96);
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  z-index: 100;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 10px;
+  margin-bottom: 35px;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.logo-icon {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  background: linear-gradient(135deg, var(--accent-light), #6d28d9);
+  box-shadow: 0 0 25px rgba(139, 92, 246, 0.3);
+}
+
+.nav-section {
+  margin-bottom: 25px;
+}
+
+.nav-label {
+  padding: 0 10px;
+  margin-bottom: 8px;
+  color: #555b68;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 11px 12px;
+  margin-bottom: 3px;
+  border-radius: 9px;
+  color: var(--muted);
+  font-size: 13px;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.nav-item:hover {
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.04);
+  transform: translateX(2px);
+}
+
+.nav-item.active {
+  color: #d8ccff;
+  background: rgba(139, 92, 246, 0.13);
+}
+
+.nav-icon {
+  width: 18px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.sidebar-bottom {
+  margin-top: auto;
+  padding-top: 15px;
+  border-top: 1px solid var(--border);
+}
+
+.user-profile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+}
+
+.avatar {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #7c3aed, #4f46e5);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.user-info {
+  min-width: 0;
+}
+
+.user-name {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.user-email {
+  margin-top: 2px;
+  color: var(--muted);
+  font-size: 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* =====================================================
+   TOPBAR
+====================================================== */
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 35px;
+}
+
+.page-title h1 {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 30px;
+  letter-spacing: -1px;
+}
+
+.page-title p {
+  margin-top: 5px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.top-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* =====================================================
+   BUTTONS
+====================================================== */
+
+.icon-btn {
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  background: rgba(255, 255, 255, 0.025);
+  color: var(--muted);
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.icon-btn:hover {
+  color: white;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.btn-primary,
+.new-task-btn {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 9px;
+  background: linear-gradient(135deg, #9b7cf6, #7c3aed);
+  color: white;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 8px 25px rgba(124, 58, 237, 0.2);
+  transition: 0.25s ease;
+}
+
+.btn-primary:hover,
+.new-task-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(124, 58, 237, 0.35);
+}
+
+.btn-outline {
+  padding: 9px 15px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: transparent;
+  color: var(--muted);
+  font-size: 11px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.btn-outline:hover {
+  color: white;
+  border-color: rgba(139, 92, 246, 0.35);
+}
+
+.btn-secondary {
+  padding: 9px 15px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--text);
+  font-size: 11px;
+  cursor: pointer;
+}
+
+/* =====================================================
+   STAT CARDS
+====================================================== */
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-bottom: 25px;
+}
+
+.stat-card {
+  padding: 18px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.025);
+  transition: 0.25s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(139, 92, 246, 0.2);
+}
+
+.stat-label {
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.stat-value {
+  margin-top: 7px;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 25px;
+  font-weight: 600;
+}
+
+.stat-change {
+  margin-top: 5px;
+  color: var(--green);
+  font-size: 10px;
+}
+
+/* =====================================================
+   TASK CARD (shared by tasks board + dashboard recents)
+====================================================== */
+
+.task-card {
+  position: relative;
+  display: block;
+  padding: 15px;
+  margin-bottom: 9px;
+  border: 1px solid var(--border);
+  border-radius: 11px;
+  background: rgba(255, 255, 255, 0.035);
+  cursor: pointer;
+  color: inherit;
+  text-decoration: none;
+  transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+}
+
+.task-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(139, 92, 246, 0.25);
+  background: rgba(139, 92, 246, 0.045);
+}
+
+.task-card:focus-visible {
+  outline: 2px solid rgba(167, 139, 250, 0.8);
+  outline-offset: 2px;
+}
+
+.task-title {
+  margin-bottom: 8px;
+  color: #e7e8ed;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.task-description {
+  margin-bottom: 12px;
+  color: #747a87;
+  font-size: 10px;
+  line-height: 1.5;
+}
+
+.task-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.task-date {
+  color: #696f7c;
+  font-size: 9px;
+}
+
+.priority {
+  padding: 4px 7px;
+  border-radius: 5px;
+  font-size: 9px;
+  font-weight: 600;
+}
+
+.priority.high {
+  background: rgba(239, 68, 68, 0.1);
+  color: #fca5a5;
+}
+
+.priority.medium {
+  background: rgba(234, 179, 8, 0.1);
+  color: #fde68a;
+}
+
+.priority.low {
+  background: rgba(34, 197, 94, 0.1);
+  color: #86efac;
+}
+
+.empty-state {
+  padding: 30px;
+  border: 1px dashed rgba(255, 255, 255, 0.1);
+  border-radius: 11px;
+  color: var(--muted);
+  font-size: 12px;
+  text-align: center;
+}
+
+/* =====================================================
+   FORMS (shared across profile, modal, auth pages)
+====================================================== */
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 7px;
+  color: #a5a9b3;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  padding: 10px 11px;
+  border: 1px solid var(--border);
+  outline: none;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.035);
+  color: white;
+  font-size: 12px;
+}
+
+.form-group textarea {
+  min-height: 90px;
+  resize: vertical;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  border-color: rgba(139, 92, 246, 0.5);
+}
+
+.status-msg {
+  font-size: 11px;
+}
+
+.status-success {
+  color: var(--green);
+}
+
+.status-error {
+  color: #fca5a5;
+}
+
+/* =====================================================
+   MODAL (shared — used by any "create/edit" popup)
+====================================================== */
+
+.modal {
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(8px);
+  z-index: 500;
+}
+
+.modal.active {
+  display: flex;
+  animation: fadeIn 0.2s ease;
+}
+
+.modal-box {
+  width: min(460px, 100%);
+  padding: 25px;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: #11141b;
+  box-shadow: 0 30px 100px rgba(0, 0, 0, 0.6);
+  animation: modalUp 0.3s ease;
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 22px;
+}
+
+.modal-header h2 {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 20px;
+}
+
+.close-btn {
+  width: 30px;
+  height: 30px;
+  border: none;
+  border-radius: 7px;
+  background: rgba(255, 255, 255, 0.05);
+  color: #888e9a;
+  cursor: pointer;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 22px;
+}
+
+.cancel-btn {
+  padding: 9px 15px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+}
+
+.save-btn {
+  padding: 9px 17px;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #9b7cf6, #7c3aed);
+  color: white;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* =====================================================
+   ANIMATIONS
+====================================================== */
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes modalUp {
+  from {
+    opacity: 0;
+    transform: translateY(15px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes cardIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =====================================================
+   RESPONSIVE (shell-level breakpoints)
+====================================================== */
+
+@media (max-width: 1000px) {
+  .sidebar {
+    width: 210px;
+  }
+
+  .main {
+    width: calc(100% - 210px);
+    margin-left: 210px;
+    padding: 28px;
+  }
+
+  .stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 700px) {
+  .sidebar {
+    display: none;
+  }
+
+  .main {
+    width: 100%;
+    margin-left: 0;
+    padding: 22px 16px;
+  }
+
+  .topbar {
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  .page-title h1 {
+    font-size: 25px;
+  }
+
+  .stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

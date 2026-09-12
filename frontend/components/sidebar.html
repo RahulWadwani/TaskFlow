@@ -1,0 +1,203 @@
+<!-- {# =====================================================
+   components/sidebar.html
+   Expects (passed from the parent template context):
+     - active_page: "dashboard" | "tasks" | "profile"
+     - user_name:   e.g. "Rahul"
+     - user_email:  e.g. "rahul@example.com"
+====================================================== #}
+
+<aside class="sidebar">
+
+  <a href="/" class="logo">
+    <span class="logo-icon">✓</span>
+    TaskFlow
+  </a>
+
+  <div class="nav-section">
+    <div class="nav-label">Workspace</div>
+
+    <a href="/dashboard" class="nav-item {{ 'active' if active_page == 'dashboard' else '' }}">
+      <span class="nav-icon">◉</span>
+      Dashboard
+    </a>
+
+    <a href="/tasks" class="nav-item {{ 'active' if active_page == 'tasks' else '' }}">
+      <span class="nav-icon">✓</span>
+      My Tasks
+    </a>
+
+    <a href="#" class="nav-item">
+      <span class="nav-icon">▣</span>
+      Projects
+    </a>
+
+    <a href="#" class="nav-item">
+      <span class="nav-icon">◷</span>
+      Calendar
+    </a>
+  </div>
+
+  <div class="nav-section">
+    <div class="nav-label">Personal</div>
+
+    <a href="#" class="nav-item">
+      <span class="nav-icon">★</span>
+      Important
+    </a>
+
+    <a href="/profile" class="nav-item {{ 'active' if active_page == 'profile' else '' }}">
+      <span class="nav-icon">⚙</span>
+      Settings
+    </a>
+  </div>
+
+  <div class="sidebar-bottom">
+    <div class="user-profile">
+      <div class="avatar">{{ (user_name or "U")[:2] | upper }}</div>
+      <div class="user-info">
+        <div class="user-name">{{ user_name or "User" }}</div>
+        <div class="user-email">{{ user_email or "" }}</div>
+      </div>
+    </div>
+  </div>
+
+</aside> -->
+
+
+
+```
+<!-- =====================================================
+     SIDEBAR
+====================================================== -->
+<aside class="sidebar">
+
+    <a href="../index.html" class="logo">
+        <span class="logo-icon">
+            ✓
+        </span>
+
+        TaskFlow
+    </a>
+
+
+    <div class="nav-section">
+
+        <div class="nav-label">
+            Workspace
+        </div>
+
+
+        <a
+            href="dashboard.html"
+            class="nav-item active">
+
+            <span class="nav-icon">
+                ◉
+            </span>
+
+            Dashboard
+
+        </a>
+
+
+        <a
+            href="tasks.html"
+            class="nav-item">
+
+            <span class="nav-icon">
+                ✓
+            </span>
+
+            My Tasks
+
+        </a>
+
+
+        <a
+            href="projects.html"
+            class="nav-item">
+
+            <span class="nav-icon">
+                ▦
+            </span>
+
+            Projects
+
+        </a>
+
+
+        <a
+            href="calendar.html"
+            class="nav-item">
+
+            <span class="nav-icon">
+                ◫
+            </span>
+
+            Calendar
+
+        </a>
+
+
+        <a
+            href="important.html"
+            class="nav-item">
+
+            <span class="nav-icon">
+                ★
+            </span>
+
+            Important
+
+        </a>
+
+    </div>
+
+
+    <div class="nav-section">
+
+        <div class="nav-label">
+            Management
+        </div>
+
+
+        <a
+            href="settings.html"
+            class="nav-item">
+
+            <span class="nav-icon">
+                ⚙
+            </span>
+
+            Settings
+
+        </a>
+
+    </div>
+
+
+    <div class="sidebar-bottom">
+
+        <div class="user-profile">
+
+            <div class="avatar">
+                RW
+            </div>
+
+            <div class="user-info">
+
+                <div class="user-name">
+                    Rahul
+                </div>
+
+                <div class="user-email">
+                    rahul@example.com
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</aside>

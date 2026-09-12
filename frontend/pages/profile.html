@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Profile | Task Manager</title>
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="/static/css/base.css">
+  <link rel="stylesheet" href="/static/css/layout.css">
+  <link rel="stylesheet" href="/static/css/components.css">
+  <link rel="stylesheet" href="/static/css/pages/profile.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="navbar-brand">Task Manager</div>
+    <nav class="navbar-links">
+      <a href="/static/pages/dashboard.html">Dashboard</a>
+      <a href="/static/pages/tasks.html">Tasks</a>
+      <a href="/static/pages/profile.html" class="active">Profile</a>
+      <button id="logoutBtn" class="btn btn-secondary">Logout</button>
+    </nav>
+  </header>
+
+  <!-- Main layout -->
+  <div class="app-container">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <ul>
+        <li><a href="dashboard.html">🏠 Dashboard</a></li>
+        <li><a href="tasks.html">✅ My Tasks</a></li>
+        <li><a href="profile.html" class="active">👤 Profile</a></li>
+      </ul>
+    </aside>
+
+    <!-- Main content -->
+    <main class="main-content">
+      <h1>My Profile</h1>
+
+      <section class="profile-card">
+        <div class="profile-avatar">
+          <img id="avatarPreview" src="../assets/images/default-avatar.png" alt="Profile avatar">
+          <input type="file" id="avatarInput" accept="image/*" hidden>
+          <button id="changeAvatarBtn" class="btn btn-outline">Change Photo</button>
+        </div>
+
+        <form id="profileForm" class="profile-form">
+          <div class="form-group">
+            <label for="fullName">Full Name</label>
+            <input type="text" id="fullName" name="fullName" required>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+
+          <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" required>
+          </div>
+
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone">
+          </div>
+
+          <hr>
+
+          <h3>Change Password</h3>
+
+          <div class="form-group">
+            <label for="currentPassword">Current Password</label>
+            <input type="password" id="currentPassword" name="currentPassword">
+          </div>
+
+          <div class="form-group">
+            <label for="newPassword">New Password</label>
+            <input type="password" id="newPassword" name="newPassword">
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Save Changes</button>
+            <span id="profileStatusMsg" class="status-msg"></span>
+          </div>
+        </form>
+      </section>
+    </main>
+  </div>
+
+  <!-- Scripts (order matters: api -> auth -> main -> page-specific) -->
+  <script src="/static/js/api.js"></script>
+  <script src="/static/js/auth.js"></script>
+  <script src="static/js/main.js"></script>
+  <script src="/static/js/profile.js"></script>
+</body>
+</html>

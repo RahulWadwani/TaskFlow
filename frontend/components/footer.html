@@ -1,0 +1,18 @@
+{# =====================================================
+   components/footer.html
+   Landing-page footer — matches index.html's plain
+   <footer> markup (styled by the bare `footer` selector
+   in style.css, not a class). Include at the end of
+   <body>.
+   Expects:
+     - current_year: e.g. 2026 (pass from main.py:
+       {"current_year": datetime.now().year})
+====================================================== #}
+
+<footer>
+
+  <span>&copy; {{ current_year }} TaskFlow</span>
+
+  <span>Built for people who get things done.</span>
+
+</footer>

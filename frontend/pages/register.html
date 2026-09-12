@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign up — TaskFlow</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/static/css/register.css">
+</head>
+<body>
+
+<div class="background-glow glow-one"></div>
+<div class="background-glow glow-two"></div>
+
+<div class="auth-page">
+  <div class="auth-card">
+
+    <a href="/" class="auth-logo">
+      <span class="logo-icon">✓</span>
+      TaskFlow
+    </a>
+
+    <div class="auth-header">
+      <h1>Create your account</h1>
+      <p>Start organizing your work in minutes.</p>
+    </div>
+
+    <div id="authErrorMsg" class="auth-error"></div>
+
+    <form id="registerForm" class="auth-form">
+
+      <div class="form-group">
+        <label for="registerName">Full name</label>
+        <input type="text" id="registerName" placeholder="Rahul Sharma" required>
+      </div>
+
+      <div class="form-group">
+        <label for="registerUsername">Username</label>
+        <input type="text" id="registerUsername" placeholder="Choose a username" required>
+      </div>
+
+      <div class="form-group">
+        <label for="registerEmail">Email</label>
+        <input type="email" id="registerEmail" placeholder="you@example.com" required>
+      </div>
+
+      <div class="form-group">
+        <label for="registerPassword">Password</label>
+        <input type="password" id="registerPassword" placeholder="••••••••" required>
+      </div>
+
+      <div class="form-options">
+        <label class="checkbox-group">
+          <input type="checkbox" id="agreeTerms" required>
+          I agree to the Terms &amp; Privacy Policy
+        </label>
+      </div>
+
+      <button type="submit" class="auth-submit-btn">Create account</button>
+
+    </form>
+
+    <div class="auth-footer">
+      Already have an account? <a href="/login">Log in</a>
+    </div>
+
+  </div>
+</div>
+
+<script src="/static/js/api.js"></script>
+<script src="/static/js/auth.js"></script>
+
+</body>
+</html>

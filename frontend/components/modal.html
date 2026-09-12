@@ -1,0 +1,39 @@
+{# =====================================================
+   components/modal.html
+   Reusable modal shell as a Jinja2 macro. Import it, then
+   wrap your form/content with {% call %} to drop it inside.
+
+   Usage in a page template:
+
+     {% import "components/modal.html" as modals %}
+
+     {% call modals.modal("taskModal", "Create new task") %}
+       <form id="taskForm">
+         ...
+         <div class="modal-actions">
+           <button type="button" class="cancel-btn" id="cancelTaskModalBtn">Cancel</button>
+           <button type="submit" class="save-btn">Create task</button>
+         </div>
+       </form>
+     {% endcall %}
+
+   Parameters:
+     - modal_id:    element id, e.g. "taskModal" (used by your JS to open/close it)
+     - title:       header text shown in the modal
+     - close_id:    optional, defaults to "<modal_id>CloseBtn"
+====================================================== #}
+
+{% macro modal(modal_id, title, close_id=None) %}
+<div class="modal" id="{{ modal_id }}">
+  <div class="modal-box">
+
+    <div class="modal-header">
+      <h2>{{ title }}</h2>
+      <button class="close-btn" id="{{ close_id or (modal_id ~ 'CloseBtn') }}">×</button>
+    </div>
+
+    {{ caller() }}
+
+  </div>
+</div>
+{% endmacro %}
